@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <script src="js/jquery.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.rotateSlider.js"></script>
+
+  <title> portfolio </title>
+</head>
+<script>
+
+  $(document).ready(function () {
+
+    // set page height
+
+    var secHeight = $(window).innerHeight();
+    $("section").css("height", secHeight);
+
+    //AOS setting
+    AOS.init();
+
+    // 네비클릭 섹션 이동
+
+    $(".navmenu>li>a , .main>a").click(function (e) {
+      e.preventDefault();
+      var target = $(this).attr("href");
+      $("html,body").animate({ scrollTop: $(target).offset().top });
+    });
+
+    // 헤더 숨기기
+
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 200) {
+        $(".headernav").css("display", "flex");
+      } else {
+        $(".headernav").css("display", "none");
+      }
+    });
+
+    //section에 해당하는 nav 표시
+
+    $(window).on("scroll", function () {
+      $("section").each(function () {
+        if ($(window).scrollTop() >= $(this).offset().top) {
+          var id = $(this).attr("id");
+          $(".navmenu li a").removeClass("active");
+          $(".navmenu li a[href='#" + id + "']").addClass("active");
+        }
+      });
+    });
+
+    //backtotop 버튼
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 200) {
+        $(".backtotop").css("display", "block");
+      }
+      else {
+        $(".backtotop").css("display", "none");
+      }
+    });
+    //movedown 버튼
+    $(window).scroll(function (e) {
+      if ($(this).scrollTop() > 200) {
+        $(".movedown").css("display", "none");
+      }
+      else {
+        $(".movedown").css("display", "block");
+      }
+    });
+
+    $("#slider").rotateSlider({});
+
+  });
+
+</script>
+
+<body>
+
+  <!-- 헤더 -->
+
+  <header>
+    <nav class="headernav">
+      <div class="navlogo">
+        <a href="#"><i class="fab fa-think-peaks">Main title</i></a>
+      </div>
+      <ul class="navmenu slideDown">
+        <li>
+          <a href="#section1" class="active">
+            HOME
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </li>
+        <li>
+          <a href="#section2">
+            INTRODUCE
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </li>
+        <li>
+          <a href="#section3">
+            PROJECTS
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </li>
+        <li>
+          <a href="#section4">
+            CONTACT
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </li>
+      </ul>
+      <div class="navbugger">
+        <div class="navbugger_btn"></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 본문 -->
+
+  <div id="container">
+
+    <section id="section1">
+      <div class="main" data-aos="zoom-in">
+        <div class="mainText">
+          <h1>
+            Web DevOps <span> Noname </span> Page.
+          </h1>
+          <p> I'M
+            <span class="typing"></span>
+          </p>
+        </div>
+        <a href="#section2" class="movedown">Go</a>
+      </div>
+    </section>
+
+    <section id="section2">
+      <div class="profile">
+        <h2> ABOUT </h2>
+        <div class="about">
+          <div class="idpic">
+            <img src="image/bg/workspace.jpg" alt="idpicture" data-aos="fade-right">
+          </div>
+          <div class="introduce">
+            <h3> Web DevOps </h3>
+            <dl data-aos="fade-down">
+              <dt>Name</dt>
+              <dd>이름 입력</dd>
+              <dt>Birth</dt>
+              <dd>생일 입력</dd>
+              <dt>E-Mail</dt>
+              <dd>nowuploading...</dd>
+              <dt>Cellphone</dt>
+              <dd>+82) 10-0000-0000</dd>
+            </dl>
+            <h3>Skills</h3>
+            <ul class="skillBox">
+              <li class="skills" data-aos="fade-up" data-aos-delay="100">
+                <div class="skillbar">
+                  <div class="progress" data-progress="90"><span>90%</span></div>
+                </div>
+              </li>
+              <li class="skills" data-aos="fade-up" data-aos-delay="200">
+                <div class="skillbar">
+                  <div class="progress" data-progress="85"><span>85%</span></div>
+                </div>
+              </li>
+              <li class="skills" data-aos="fade-up" data-aos-delay="300">
+                <div class="skillbar">
+                  <div class="progress" data-progress="80"><span>80%</span></div>
+                </div>
+              </li>
+              <li class="skills" data-aos="fade-up" data-aos-delay="400">
+                <div class="skillbar">
+                  <div class="progress" data-progress="75"><span>75%</span></div>
+                </div>
+              </li>
+              <li class="skills" data-aos="fade-up" data-aos-delay="500">
+                <div class="skillbar">
+                  <div class="progress" data-progress="70"><span>70%</span></div>
+                </div>
+              </li>
+              <li class="skills" data-aos="fade-up" data-aos-delay="600">
+                <div class="skillbar">
+                  <div class="progress" data-progress="70"><span>70%</span></div>
+                </div>
+              </li>
+              <li class="skills" data-aos="fade-up" data-aos-delay="700">
+                <div class="skillbar">
+                  <div class="progress" data-progress="60"><span>60%</span></div>
+                </div>
+              </li>
+              <li class="skills" data-aos="fade-up" data-aos-delay="800">
+                <div class="skillbar">
+                  <div class="progress" data-progress="60"><span>60%</span></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section3">
+      <div class="projects scrollPopup">
+        <h2> Items </h2>
+        <div id="slider" class="rotateslider-container">
+          <div class="rotateslider-item project1">
+            <img src="image/bg/desk.jpg" alt="project1img">
+            <div class="projectText">
+              <h4> Title 01 </h4>
+              <p> Contents </p>
+              <div class="link">
+                <a href="#" target="blank"> 바로가기 </a>
+              </div>
+            </div>
+          </div>
+          <div class="rotateslider-item project2">
+            <img src="image/bg/lap.jpg" alt="project2img">
+            <div class="projectText">
+              <h4> Title 02 </h4>
+              <p> Contents </p>
+                <div class="link">
+                  <a href="#" target="blank"> 바로가기 </a>
+                </div>
+            </div>
+          </div>
+          <div class="rotateslider-item project3">
+            <img src="image/bg/cof.jpg" alt="project3img">
+            <div class="projectText">
+              <h4> Title 03 </h4>
+              <p> Contents </p>
+                <div class="link">
+                  <a href="#" target="blank"> 바로가기 </a>
+                </div>
+            </div>
+          </div>
+          <div class="rotateslider-item project4">
+            <img src="image/bg/lap.jpg" alt="project4img">
+            <div class="projectText">
+              <h4> Title 04 </h4>
+              <p> Contents </p>
+                <div class="link">
+                  <a href="#" target="blank"> 바로가기 </a>
+                </div>
+            </div>
+          </div>
+          <span class="arrow left js-rotateslider-arrow" data-action="prev">prev</span>
+          <span class="arrow right js-rotateslider-arrow" data-action="next">next</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="section4">
+      <div class="contact">
+        <h2> CONTACT </h2>
+        <form method="POST">
+          <div class="formdiv1">
+            <input type="text" id="name" placeholder="Your Name." required>
+            <input type="email" id="email" placeholder="Your E-Mail." required>
+          </div>
+          <div class="formdiv2">
+            <input type="text" id="subject" placeholder="Subject." required>
+            <textarea name="textarea" id="message" rows="5" placeholder="Enter Your Message." required></textarea>
+          </div>
+          <div class="formdiv3">
+            <input type="submit" value="SEND MESSAGE 💬">
+          </div>
+        </form>
+      </div>
+      <div class="footer">
+        <div class="footerText">
+          copyrightⓒ 2021 All rights reserved by Kw
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <a href="#" class="backtotop">↑</a>
+
+</body>
+
+</html>

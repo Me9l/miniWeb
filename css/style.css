@@ -1,0 +1,738 @@
+/* default setting */
+
+:root {
+  --color1: rgba(0, 212, 189, 1);
+  --color2: rgba(6, 161, 254, 1);
+  --color3: rgba(39, 68, 216, 1);
+  --color4: rgba(32, 49, 165, 1);
+  --color5: rgba(0, 0, 0, 1);
+  --color6: rgba(230, 230, 230, 1);
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  font-family: "Josefin Sans", sans-serif;
+}
+body {
+  width: 100%;
+  max-width: 1900px;
+  margin: 0 auto;
+}
+
+li {
+  list-style-type: none;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+}
+
+section {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color3);
+}
+
+i {
+  color: var(--color3);
+}
+p {
+  color: var(--color5);
+}
+h1 {
+  color: var(--color5);
+}
+h1 span {
+  color: var(--color1);
+  font-style: italic;
+}
+h2 {
+  text-align: center;
+  margin: 4rem auto;
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--color2);
+  text-shadow: 6px 6px 6px var(--color5);
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  margin: 0 auto;
+  border: 1px solid var(--color3);
+}
+h3 {
+  font-size: 1.8rem;
+}
+
+/* header setting */
+
+header {
+  width: 100%;
+  max-width: 1900px;
+  height: 60px;
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+  transition: all 1s;
+}
+.headernav {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--color6);
+  box-shadow: 0 0.0125rem 0.25rem rgba(0, 0, 0, 0.5);
+}
+
+.navlogo {
+  width: 225px;
+  font-size: 1.7rem;
+}
+
+.navmenu {
+  margin-top: 4px;
+  display: flex;
+}
+
+.navmenu li a {
+  padding: 8px 16px;
+  position: relative;
+  display: inline-block;
+  transition: 0.2s;
+  overflow: hidden;
+}
+
+.navmenu a:hover,
+.navmenu a.active {
+  font-weight: bold;
+  color: var(--color1);
+}
+
+.navmenu li a span {
+  position: absolute;
+  display: block;
+}
+
+.navmenu li a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color1));
+}
+.navmenu li a:hover span:nth-child(1) {
+  left: 100%;
+  transition: 1s;
+}
+
+.navmenu li a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--color1));
+}
+.navmenu li a:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+}
+
+.navmenu li a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(270deg, transparent, var(--color1));
+}
+.navmenu li a:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+
+.navmenu li a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, var(--color1));
+}
+.navmenu li a:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+}
+
+.navbugger {
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  display: none;
+}
+.navbugger_btn {
+  width: 26px;
+  height: 4px;
+  background-color: var(--color3);
+  border-radius: 4px;
+  transition: all 0.5s ease;
+}
+.navbugger_btn::before,
+.navbugger_btn::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 4px;
+  background-color: var(--color3);
+  border-radius: 4px;
+  transition: all 0.5s ease;
+}
+.navbugger_btn::before {
+  transform: translateY(-8px);
+}
+.navbugger_btn::after {
+  transform: translateY(8px);
+}
+
+.navbugger.open .navbugger_btn {
+  background-color: transparent;
+}
+.navbugger.open .navbugger_btn::before {
+  transform: rotate(45deg);
+}
+.navbugger.open .navbugger_btn::after {
+  transform: rotate(-45deg);
+}
+
+/* header nav slide down */
+
+.slideDown {
+  animation: slidDown 1.5s ease;
+}
+
+@keyframes slidDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* 본문 설정 */
+
+#section1 {
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: center / cover url(../image/bg/workspace.jpg) no-repeat;
+  background-attachment: fixed;
+}
+#section2 {
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1));
+}
+#section3 {
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+}
+#section4 {
+  flex-direction: row;
+  align-content: flex-end;
+  flex-wrap: wrap;
+  background: center / cover url(../image/bg/cof.jpg) no-repeat;
+}
+
+/* section1 main */
+
+.main {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mainText {
+  width: 90%;
+  height: 30%;
+  padding: 4%;
+  margin: 0 auto;
+  font-size: 1.8rem;
+}
+
+.mainText p span {
+  color: var(--color3);
+}
+
+/* blink cursor */
+
+.typing:after {
+  content: "";
+  right: -5px;
+  width: 1px;
+  height: 16px;
+  border-right: 3px solid #fff;
+  animation: blink 0.6s ease infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.movedown {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 3rem;
+  animation: bounce 1.5s infinite alternate;
+}
+.movedown:hover {
+  text-shadow: 0px 0px 10px var(--color1);
+}
+
+/* section2 profile */
+
+.profile {
+  width: 90%;
+  height: 85%;
+  margin: 0 auto;
+}
+.about {
+  width: 100%;
+  height: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.idpic {
+  width: 30%;
+}
+.idpic > img {
+  width: 240px;
+  height: 320px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10%;
+}
+.introduce {
+  width: 65%;
+  height: 80%;
+}
+.introduce h3 {
+  margin: 2rem 0rem;
+}
+.introduce dl dt,
+.introduce dl dd {
+  display: inline-block;
+}
+.introduce dl dt {
+  width: 9rem;
+  font-size: 1.8rem;
+  color: var(--color3);
+}
+.introduce dl dd {
+  width: calc(100% - 10rem);
+  font-size: 1.4rem;
+  color: var(--color1);
+}
+
+.skillBox {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-evenly;
+}
+
+.skills {
+  width: 70px;
+  height: 70px;
+  border: 1px solid var(--color2);
+  border-radius: 20px;
+  box-shadow: 0 0 20px var(--color3);
+  background: 50% / 70% no-repeat;
+  margin-bottom: 2.5rem;
+}
+
+.skills:hover > .skillbar {
+  box-shadow: 0 0 20px var(--color3), inset 0 0 10px var(--color5);
+}
+.skillbar {
+  position: absolute;
+  bottom: -1.5rem;
+  width: 100%;
+  height: 1rem;
+  background-color: var(--color2);
+  border-radius: 20px;
+}
+.progress {
+  width: 0%;
+  opacity: 0;
+  background-color: var(--color3);
+  border-radius: 20px;
+  transition: all 5s;
+}
+.progress > span {
+  margin: 1rem;
+  color: var(--color6);
+}
+
+/* section3 projects */
+
+.projects {
+  width: 90%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.projectText {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.link {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+}
+.link a {
+  border: 1px solid var(--color3);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  transition: all 0.5s ease;
+}
+.link a:hover {
+  box-shadow: 0 0 10px var(--color3);
+  color: var(--color6);
+  background-color: var(--color2);
+}
+.projectText i {
+  position: absolute;
+  left: -0.5rem;
+}
+.projectText h4 {
+  font-size: 1.5rem;
+}
+.projectText p {
+  font-size: 0.8rem;
+}
+.rotateslider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.rotateslider-container .rotateslider-item {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 60%;
+  height: 90%;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%) scale(0.7);
+  opacity: 0;
+  filter: blur(3px);
+  transition: all 0.3s ease;
+}
+
+.rotateslider-container .rotateslider-item.next {
+  left: 70%;
+  opacity: 0.5;
+  z-index: 0;
+}
+.rotateslider-container .rotateslider-item.prev {
+  left: 30%;
+  opacity: 0.5;
+  z-index: 0;
+}
+.rotateslider-container .rotateslider-item.now {
+  opacity: 1;
+  filter: blur(0px);
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%) scale(1.1);
+  z-index: 2;
+}
+
+.rotateslider-item > img {
+  width: 50vw;
+  height: 60vh;
+  min-width: 250px;
+  min-height: 300px;
+  margin: 0 auto;
+}
+.rotateslider-container .arrow {
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  color: var(--color3);
+  font-size: 1.5rem;
+  text-align: center;
+  z-index: 3;
+}
+.rotateslider-container .left {
+  left: 10px;
+}
+.rotateslider-container .right {
+  right: 10px;
+}
+
+.project3 img {
+  width: 100%;
+}
+
+/* section4 contact */
+
+.contact {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+
+.contact form {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+input,
+textarea {
+  font-weight: bold;
+}
+.formdiv1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formdiv1 input {
+  width: 43%;
+  height: 3rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--color1);
+}
+
+.formdiv2 {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formdiv2 input {
+  width: 90%;
+  min-width: calc(300px + 2rem);
+  height: 3rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.formdiv2 textarea {
+  width: 90%;
+  min-width: calc(300px + 2rem);
+  height: 9rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  resize: none;
+}
+
+.formdiv3 {
+  width: 100%;
+  padding: 1rem;
+}
+.formdiv3 input {
+  width: 178px;
+  height: 3rem;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  display: flex;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: var(--color3);
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.formdiv3 input:hover {
+  box-shadow: 0 0 10px var(--color3);
+  color: var(--color6);
+  background-color: var(--color2);
+}
+
+/* class add / remove */
+
+.scrollPopup {
+  transition: 1.5s;
+}
+.navup {
+  transform: scaleZ(1.4);
+}
+
+.footer {
+  margin: 0 auto;
+  width: 80%;
+  height: 60px;
+}
+.footer .footerText {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* go top */
+
+.backtotop {
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  text-align: center;
+  border: 3px solid var(--color3);
+  border-radius: 50%;
+  display: none;
+  animation: bounce 2s infinite alternate;
+}
+.backtotop:hover {
+  box-shadow: 0 0 10px var(--color1);
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+
+/*//////////////////////////////////////////// 반응형 설정 */
+
+@media screen and (max-width: 768px) {
+  h2 {
+    margin: 2rem auto;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  .headernav {
+    flex-direction: column;
+    transition: 2s;
+  }
+
+  .navmenu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navmenu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navlink {
+    display: none;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  .navbugger {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .navmenu.active,
+  .navlink.active {
+    display: flex;
+  }
+
+  .profile {
+    height: 85%;
+  }
+  .about {
+    height: 85%;
+    align-content: flex-start;
+  }
+  .idpic {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .idpic > img {
+    width: 140px;
+    height: 180px;
+  }
+  .introduce {
+    width: 100%;
+  }
+  .introduce h3 {
+    margin: 1rem;
+  }
+  .introduce dl {
+    padding: 0 1rem;
+  }
+  .introduce dl dt,
+  .introduce dl dd {
+    font-size: 1rem;
+  }
+  .skillInnerBox > div {
+    margin: 6px;
+  }
+  .skills {
+    margin: 1rem 0.6rem;
+  }
+
+  .formdiv1 {
+    flex-direction: column;
+  }
+  .formdiv1 input {
+    width: 90%;
+    min-width: calc(300px + 2rem);
+  }
+}
